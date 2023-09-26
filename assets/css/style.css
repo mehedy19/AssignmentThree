@@ -4,7 +4,13 @@
 	text-align: center;
 	text-transform: uppercase;
 }
-
+.card-header h1 {
+	font-size: 20px;
+	font-weight: 600;
+}
+.card-body {
+	padding: 20px;
+}
 /* =========Footer Start========= */
 footer {
 	background: linear-gradient(110.6deg, rgb(156, 116, 129) -18.3%, rgb(67, 54, 74) 16.4%, rgb(47, 48, 67) 68.2%, rgb(27, 23, 36) 99.1%);
@@ -13,6 +19,18 @@ footer {
 	text-align: center;
 }
 
+  .code-example  pre {
+	display: block;
+	margin-top: 0;
+	margin-bottom: 1rem;
+	overflow: auto;
+	font-size: .875em;
+	font-weight: 600;
+	color: #020253;
+  }
+  .card {
+	margin: 50px auto;
+}
 /* =========Footer End========= */
 
 /* ===========Responsive css============= */
