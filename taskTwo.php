@@ -6,35 +6,88 @@ include('includes/header.php');
 
 <div class="card">
     <div class="card-header">
-    <h1>Skip Multiples of 5</h1>
+    <h1>Task 2: Array Manipulation</h1>
     </div>
     <div class="card-body">
-        <p>Create a PHP script that prints numbers from 1 to 50 using a for loop. However, when the
-loop encounters a multiple of 5, it should skip that number using the continue statement and
-continue to the next iteration.
+        <p>Create an array called $numbers containing the numbers 1 to 10. Write a PHP
+             function which takes the "$numbers" array as an argument to remove the even
+              numbers from the array and print the resulting array.
 </p>
     <div class="code-example">
   <pre>
     &lt;?php
-for ($i = 1; $i <= 50; $i++) {
-    if ($i % 5 == 0) {
-        continue; // Skip multiples of 5
-    }
-    echo $i . " ";
+
+function removeEvenNumbers($numbers) {
+    // Remove even numbers from the array.
+    $result = array_filter($numbers, function ($num) {
+        return $num % 2 != 0;
+    });
+    
+    // Print the resulting array.
+    print_r($result);
 }
+
+$numbers = range(1, 10);
+removeEvenNumbers($numbers);
+
+
+========== Another way========
+
+function removeEvenNumbers($numbers) {
+    // Remove even numbers from the array using square brackets.
+    $result = [];
+    foreach ($numbers as $num) {
+        if ($num % 2 != 0) {
+            $result[] = $num;
+        }
+    }
+    
+    // Print the resulting array.
+    print_r($result);
+}
+// As I did not assign any value  to $numbers before function so call the variable can be show error. example inside comment:
+//$numbers = range(1, 10);
+//removeEvenNumbers($numbers);
+//To avoied error I would like to call like this :
+removeEvenNumbers(range(1, 10));
+
 ?&gt;
 
     </div>
 </div>
-<h3>The "Skip Multiples of 5" output are:</h3>
+
 <?php
-for ($i = 1; $i <= 50; $i++) {
-    if ($i % 5 == 0) {
-        continue; // Skip multiples of 5
-    }
-    echo $i . " ";
+echo "<h4>Using array_filter result:</h4>";
+function removeEvenNumbers($numbers) {
+    // Remove even numbers from the array.
+    $result = array_filter($numbers, function ($num) {
+        return $num % 2 != 0;
+    });
+    
+    // Print the resulting array.
+    print_r($result);
 }
+
+$numbers = range(1, 10);
+removeEvenNumbers($numbers);
+//==========================================================================
+echo "<br><h4>Using using square brackets[] result:</h4>";
+ function filterEvenNumbers($numbers){
+    // I like to use [] thats why 
+    $result = [];
+    foreach($numbers as $num){
+        if($num % 2 != 0){
+            $result[] = $num;
+        }
+    }
+    print_r($result);
+ }
+ filterEvenNumbers(range(1, 10));
 ?>
+
+
+<p><em>Note: Here we can see array indexes are different, because array_filter() returns a new array, and square brackets append the element to the existing array.</em></p>
+
 </div>
 </div>
 <?php
